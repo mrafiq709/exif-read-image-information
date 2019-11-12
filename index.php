@@ -20,7 +20,7 @@ header("Access-Control-Allow-Origin: *");
 		<div class="row">
 			<div class="col-sm-12" style="text-align: center;">
 				<img src="image1.jpg" id="img1" style="width: 500px; height: auto;" />
-				<pre>Make and model: <span id="makeAndModel"></span></pre>
+				<pre>Maker, model and orientation: <span id="makeAndModel"></span></pre>
 				<br/>
 				<img src="image2.jpg" id="img2" style="width: 500px; height: auto;"/>
 				<pre id="allMetaDataSpan"></pre>
@@ -46,8 +46,9 @@ header("Access-Control-Allow-Origin: *");
 			EXIF.getData(img1, function() {
 				var make = EXIF.getTag(this, "Make");
 				var model = EXIF.getTag(this, "Model");
+				var orientation = EXIF.getTag(this, "Orientation");
 				var makeAndModel = document.getElementById("makeAndModel");
-				makeAndModel.innerHTML = `${make} ${model}`;
+				makeAndModel.innerHTML = `Maker-> ${make}, Model->  ${model}, Orientation-> ${orientation}`;
 			});
 
 			var img2 = document.getElementById("img2");
